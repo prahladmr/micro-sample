@@ -18,7 +18,6 @@ build:
         - mkdir -p ../shippable/codecoverage
         - cd micro-api
         - npm install
-        - grunt
     on_success:
        - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www .
        - cd ..
