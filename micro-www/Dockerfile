@@ -5,6 +5,6 @@ ADD . /root/micro-www/
 
 #now run set up
 RUN /bin/bash /root/micro-www/setup.sh
-RUN /bin/bash sudo pip install awscli
+RUN /usr/bin/sudo pip install awscli
 
 ENTRYPOINT ["/root/micro-www/boot.sh"]
