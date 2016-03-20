@@ -33,5 +33,6 @@ integrations:
     hub:
         - integrationName: prahlad_ecr
           type: ECR
+          agent_only: true
 
 
