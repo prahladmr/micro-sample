@@ -8,9 +8,9 @@ node_js:
 
 build:
     pre_ci: 
-       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api .
+       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api .
     pre_ci_boot:
-        image_name: 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api
+        image_name: 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api
         image_tag: latest
         pull: false
     ci:
@@ -20,13 +20,14 @@ build:
         - npm install
         - grunt
     on_success:
-       - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www .
+       - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www .
        - cd ..
-       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api .
-       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www:tip 
-       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api:tip
-       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api:tip
-       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www:tip
+       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api .
+       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:tip 
+       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:tip
+    push:
+       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:tip
+       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:tip
 
 integrations:
     hub:
