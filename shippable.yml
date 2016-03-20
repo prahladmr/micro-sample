@@ -13,13 +13,13 @@ build:
         image_name: 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api
         image_tag: latest
         pull: false
-   ci:
+    ci:
         - mkdir -p ../shippable/testresults
         - mkdir -p ../shippable/codecoverage       
         - cd micro-api
         - npm install
         - grunt
-   on_success:
+    on_success:
        - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www .
        - cd ..
        - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api .
