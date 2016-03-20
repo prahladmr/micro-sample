@@ -19,6 +19,7 @@ build:
         - cd micro-api
         - npm install
     on_success:
+       - cd ..
        - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www .
        - cd ..
        - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api .
