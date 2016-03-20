@@ -5,6 +5,5 @@ ADD . /root/micro-api/
 
 #now run set up
 RUN /bin/bash /root/micro-api/setup.sh
-RUN /usr/bin/sudo pip install awscli
 
 ENTRYPOINT ["/root/micro-api/boot.sh"]
