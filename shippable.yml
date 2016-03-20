@@ -3,12 +3,22 @@ language: node_js
 
 # version numbers, testing against one version of node
 node_js:
-    - 0.10.33
+    - 0.12
 
 
 build:
+    pre_ci: 
+       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api .
+    pre_ci_boot:
+        image_name: 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-api
+        image_tag: latest
+        pull: false
    ci:
-       - grunt
+        - mkdir -p ../shippable/testresults
+        - mkdir -p ../shippable/codecoverage       
+        - cd micro-api
+        - npm install
+        - grunt
    on_success:
        - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/micro-www .
        - cd ..
