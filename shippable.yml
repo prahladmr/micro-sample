@@ -16,6 +16,7 @@ build:
     ci:
         - mkdir -p ../shippable/testresults
         - mkdir -p ../shippable/codecoverage
+        - cd micro-api
         - npm install
         - grunt
     on_success:
