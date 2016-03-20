@@ -20,14 +20,14 @@ build:
         - npm install
     on_success:
        - cd ..
-       - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www .
+       - cd micro-www && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-www .
        - cd ..
-       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api .
-       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:tip 
-       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:latest 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:tip
+       - cd micro-api && docker build -t 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-api .
+       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-www 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-www 
+       - docker tag -f 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-api 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-api
     push:
-       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-api:tip
-       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test/micro-www:tip
+       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-api
+       - docker push 904672585901.dkr.ecr.us-east-1.amazonaws.com/prao-test:micro-www
 
 integrations:
     hub:
